@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.watch { /* Круг для часов */
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 4px solid #48d1cc;
+  border-radius: 50%;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .minutes { /* Минутная стрелка */
+  position: absolute; /*Позиционируем относительно .hasy */
+  width: 3px; /* Толщина стрелки */
+  height: 35px; /* Длина стрелки */
+  left: 51px; /*Положение стрелки*/
+  top: 16px;
+  background: #24C0BA;
+  animation: now 1600s infinite steps(1600); /* Скорость и движение стрелки */
+  transform-origin: 0 34px; /* Точка относительно которой вращается стрелка */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .hour {
+  position: absolute;
+  width: 4px;
+  height: 28px;
+  left: 50px;
+  top: 20px;
+  background: #009B95;
+  animation: nov 43200s infinite steps(43200);
+  transform-origin: 0 29px;
   }
-}
+  
+  .seconds {
+  position: absolute;
+  width: 2px;
+  height: 45px;
+  left: 51px;
+  top: 4px;
+  background: #48d1cc;
+  /* animation: nev 60s infinite steps(60); */
+  transform-origin: 0 45px;
+  }
+  
+  @keyframes nev {
+  100%{
+  transform: rotate(360deg); /* Стрелка делает полный круг */
+  }
+  }
+  
+  @keyframes nov {
+  100%{
+  transform: rotate(360deg);
+  }
+  }
+  
+  @keyframes now {
+  100%{
+  transform: rotate(360deg);
+  }
+  }
+  
+  .zero, .three, .six, .nine { /* Цифры на циферблате */
+  position: absolute;
+  font-weight: bold;
+  font-size: 18px;
+  color: #48d1cc;
+  }
+  
+  .zero {
+  top: 3px;
+  left: 41px;
+  }
+  
+  .three {
+  top: 43px;
+  left: 85px;
+  }
+  
+  .six {
+  top: 78px;
+  left: 43px;
+  }
+  
+  .nine {
+  top: 43px;
+  left: 5px;
+  }
+  
+  .sentr { /* Центр циферблата */
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  top: 42px;
+  left: 44px;
+  background: #009B95;
+  }
+
+  .del {
+    position: absolute;
+    right: -6px;
+    top: -20px;
+    cursor: pointer;
+    font-size: 30px;
+  }
+
+  .watch-container {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items:center
+  }
+
+  .addWatch {
+    display: flex;
+    flex-direction: row;
+  }
+
+  input {
+    margin-right: 10px;
+  }
+
+  .watchList-container {
+    display: flex;
+    
+  }
